@@ -1,0 +1,21 @@
+AddDefaultCharset utf-8
+Options +FollowSymlinks -Indexes
+
+RewriteEngine On
+
+RewriteBase /
+
+# Block access to hidden files:
+RewriteCond %{SCRIPT_FILENAME} -d [OR]
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteRule "(^|/)\." - [F]
+
+# Force removal of trailing slash:
+#RewriteRule ^(.*)\/(\?.*)?$ $1$2 [R=301,L]
+
+# Force add of trailing slash:
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)([^/])$ /$1$2/ [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
