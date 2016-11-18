@@ -1,16 +1,11 @@
 {
   "require": {
-    "php": ">=5.3.0",
-    "monolog/monolog": "1.*",
-    "slim/slim": "2.*",
-    "slim/views": "0.*",
-    "twig/twig": "1.*",
-    "mhulse/scraphper": "*"
+    "php": ">=5.5.0",
+    "slim/slim": "^3.1",
+    "slim/php-view": "^2.0",
+    "monolog/monolog": "^1.17"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/mhulse/scraphper"
-    }
-  ]
+  "scripts": {
+    "start": "php -S 0.0.0.0:8080 -t public public/index.php",
+  }
 }
