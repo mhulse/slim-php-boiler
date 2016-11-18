@@ -15,7 +15,7 @@ $ cd project/directory/
 Download the code from this repo:
 
 ```
-$ bash <(curl -sL https://git.io/...)
+$ bash <(curl -sL https://git.io/vXdz0)
 ```
 
 ### Install Composer
@@ -27,6 +27,8 @@ $ curl -s http://getcomposer.org/installer | php
 ```
 
 Official Composer installation instructions [found here](https://getcomposer.org/download/).
+
+### Install application dependencies
 
 Get the composer-installable code:
 
@@ -44,3 +46,11 @@ $ php composer.phar update
 
 > [after] deploy[ing] your updated `composer.lock`, [you should] then re-run `composer install`. You should never run `composer update` in production. If however you deploy a new `composer.lock` with new dependencies and/or versions (after having run `composer update` in dev) [you can] then run `composer install` [and] Composer will update and install your new dependencies [onto the production machine’s deployment].  
 > – [“composer update” vs “composer install”](http://adamcod.es/2013/03/07/composer-install-vs-composer-update.html)
+
+### Run development server
+
+```
+$ php composer.phar start
+```
+
+… and visit <0.0.0.0:8080>.
