@@ -6,10 +6,15 @@ $container = $app->getContainer();
 // Register component on container
 $container['view'] = function($c) {
 	
-	$settings = $c->get('settings')['renderer'];
+	$settings = $c->get('settings')['twig'];
+	$template_path = $settings['template_path'];
 	
-	$view = new Slim\Views\Twig($settings['template_path'], [
-		'cache' => false,
+	$view = new Slim\Views\Twig($template_path, [
+		'auto_reload' => true,
+		'autoescape' => true,
+		'cache' => $template_path . $settings['template_cache_dir'],
+		'charset' => 'utf-8',
+		'strict_variables' => false,
 	]);
 	
 	// Instantiate and add Slim specific extension:

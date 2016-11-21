@@ -1,3 +1,100 @@
-Word
-
-{% block body %}{% endblock body %}
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	
+	<title>{% block head_title %}{% endblock head_title %}{% block head_title_extra %} | Name of Website | Additional Info{% endblock head_title_extra %}</title>
+	<meta name="description" content="{% block head_description %}{% endblock head_description %}">
+	<meta name="keywords" content="{% block head_keywords %}{% endblock head_keywords %}">
+	
+	{% block head_extra %}{% endblock head_extra %}
+	
+</head>
+<body>
+	
+	{% block header %}
+		
+		<header>
+			
+			<h6>Logo</h6>
+			
+			<nav>
+				
+				<ul>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ul>
+				
+			</nav>
+			
+		</header>
+		
+	{% endblock header %}
+	
+	{% block banner_top %}
+		
+		<div>Ad</div>
+		
+	{% endblock banner_top %}
+	
+	{% block body %}
+		
+		<main>
+			
+			<section>
+				
+				{% block content %}{% endblock content %}
+				
+			</section>
+			
+			<aside>
+				
+				{% block secondary %}{% endblock secondary %}
+				
+			</aside>
+			
+		</main>
+		
+	{% endblock body %}
+	
+	{% block banner_bottom %}
+		
+		<div>Ad</div>
+		
+	{% endblock banner_bottom %}
+	
+	{% block footer %}
+		
+		<footer>
+			
+			<p>Copyright © 2016 First Last</p>
+			
+		</footer>
+		
+	{% endblock footer %}
+	
+	{% block footer_extra %}{% endblock footer_extra %}
+	
+	<script
+		src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+		integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+		crossorigin="anonymous"
+	></script>
+	<script>if(!window.jQuery){document.write('<script src="assets/plugins/jquery/jquery-3.1.1.slim.min.js"><\/script>');}</script>
+	<script src="assets/plugins/underscroe/underscore-min.js"></script>
+	
+	<script src="assets/scripts/app.js"></script>
+	
+	<script>
+		
+		$(function() {});
+		
+	</script>
+	
+	{% block footer_last %}{% endblock footer_last %}
+	
+</body>
+</html>
