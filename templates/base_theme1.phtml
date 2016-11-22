@@ -9,23 +9,38 @@
 	<meta name="description" content="{% block head_description %}{% endblock head_description %}">
 	<meta name="keywords" content="{% block head_keywords %}{% endblock head_keywords %}">
 	
+	<link rel="stylesheet" href="/assets/styles/app.css">
+	
 	{% block head_extra %}{% endblock head_extra %}
 	
 </head>
 <body>
 	
+	{% include 'app/partials/flash.phtml' %}
+	
 	{% block header %}
 		
 		<header>
 			
-			<h6>Logo</h6>
+			<h6><a href="{{ path_for('home') }}">Logo</a></h6>
 			
 			<nav>
 				
 				<ul>
-					<li>Item 1</li>
-					<li>Item 2</li>
-					<li>Item 3</li>
+					<li><a href="{{ path_for('home') }}">Home</a></li>
+					{% if auth.check %}
+						<li>
+							<a href="#">{{ auth.user.name }}</a>
+							<ul>
+								<li><a href="{{ path_for('user.profile') }}">Edit profile</a></li>
+								<li><a href="{{ path_for('user.password') }}">Change password</a></li>
+								<li><a href="{{ path_for('auth.signout') }}">Sign out</a></li>
+							</ul>
+						</li>
+					{% else %}
+						<li><a href="{{ path_for('auth.signup') }}">Sign up</a></li>
+						<li><a href="{{ path_for('auth.signin') }}">Sign in</a></li>
+					{% endif %}
 				</ul>
 				
 			</nav>
@@ -78,15 +93,11 @@
 	
 	{% block footer_extra %}{% endblock footer_extra %}
 	
-	<script
-		src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-		integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-		crossorigin="anonymous"
-	></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
 	<script>if(!window.jQuery){document.write('<script src="assets/plugins/jquery/jquery-3.1.1.slim.min.js"><\/script>');}</script>
-	<script src="assets/plugins/underscroe/underscore-min.js"></script>
+	<script src="/assets/plugins/underscore/underscore-min.js"></script>
 	
-	<script src="assets/scripts/app.js"></script>
+	<script src="/assets/scripts/app.js"></script>
 	
 	<script>
 		
