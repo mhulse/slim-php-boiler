@@ -1,4 +1,20 @@
 {
+  "name": "mhulse/slim-php-boiler",
+  "description": "So I can get up-and-running with Slim quickly.",
+  "keywords": [
+    "template",
+    "starter",
+    "simple",
+  ],
+  "homepage": "https://github.com/mhulse/slim-php-boiler",
+  "license": "Apache License, Version 2.0",
+  "authors": [
+    {
+      "name": "Micky Hulse",
+      "email": "m@mky.io",
+      "homepage": "http://mky.io/"
+    }
+  ],
   "require": {
     "illuminate/database": "^5.3",
     "monolog/monolog": "^1.17",
