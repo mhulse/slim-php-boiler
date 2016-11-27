@@ -1,39 +1,41 @@
 {
-  "name": "mhulse/slim-php-boiler",
-  "description": "So I can get up-and-running with Slim quickly.",
-  "keywords": [
-    "template",
-    "starter",
-    "simple"
-  ],
-  "homepage": "https://github.com/mhulse/slim-php-boiler",
-  "license": "Apache 2.0",
-  "authors": [
-    {
-      "name": "Micky Hulse",
-      "email": "m@mky.io",
-      "homepage": "http://mky.io/"
+    "name": "mhulse/slim-php-boiler",
+    "description": "So I can get up-and-running with Slim quickly.",
+    "keywords": [
+        "template",
+        "starter",
+        "simple"
+    ],
+    "homepage": "https://github.com/mhulse/slim-php-boiler",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Micky Hulse",
+            "email": "m@mky.io",
+            "homepage": "http://mky.io/"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "illuminate/database": "^5.3",
+        "monolog/monolog": "^1.17",
+        "php": ">=5.5.0",
+        "respect/validation": "^1.1",
+        "slim/csrf": "^0.7.0",
+        "slim/flash": "^0.2.0",
+        "slim/slim": "^3.1",
+        "slim/twig-view": "^2.1"
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8080 -t public public/index.php"
+    },
+    "config": {
+        "process-timeout": 5000
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
     }
-  ],
-  "require": {
-    "illuminate/database": "^5.3",
-    "monolog/monolog": "^1.17",
-    "php": ">=5.5.0",
-    "respect/validation": "^1.1",
-    "slim/csrf": "^0.7.0",
-    "slim/flash": "^0.2.0",
-    "slim/slim": "^3.1",
-    "slim/twig-view": "^2.1"
-  },
-  "scripts": {
-    "start": "php -S 0.0.0.0:8080 -t public public/index.php"
-  },
-  "config": {
-    "process-timeout": 5000
-  },
-  "autoload": {
-    "psr-4": {
-      "App\\": "app"
-    }
-  }
 }
