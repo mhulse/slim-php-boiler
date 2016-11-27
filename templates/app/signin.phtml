@@ -1,0 +1,31 @@
+{% extends "app/base.phtml" %}
+
+{% block content %}
+	
+	<h3>Sign in</h3>
+	
+	<form action="{{ path_for('auth.signin') }}" method="post" autocomplete="off" novalidate>
+		
+		<div class="{{ errors.email ? 'has-error' }}">
+			<label for="email">Email</label>
+			<input type="email" name="email" placeholder="you@domain.com"  value="{{ old.email }}">
+			{% if errors.email %}
+				<p>{{ errors.email | first }}</p>
+			{% endif %}
+		</div>
+		
+		<div class="{{ errors.password ? 'has-error' }}">
+			<label for="password">Password</label>
+			<input type="password" name="password">
+			{% if errors.password %}
+				<p>{{ errors.password | first }}</p>
+			{% endif %}
+		</div>
+		
+		{{ csrf.field | raw }}
+		
+		<button type="submit">Sign in</button>
+		
+	</form>
+	
+{% endblock content %}

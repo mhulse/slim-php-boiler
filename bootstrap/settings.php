@@ -4,6 +4,7 @@ return [
 	'settings' => [
 		'displayErrorDetails' => true, // Set to false in production.
 		'addContentLengthHeader' => false,
+		'determineRouteBeforeAppMiddleware' => false,
 		'renderer' => [
 			'template_path' => __DIR__ . '/../templates',
 		],
@@ -14,7 +15,26 @@ return [
 		],
 		'twig' => [
 			'template_path' => __DIR__ . '/../templates',
-			'template_cache_dir' => '/cache'
+			'environment' => [
+				'auto_reload' => true,
+				'autoescape' => true,
+				'cache' => false, //__DIR__ . '/../templates/cache',
+				'charset' => 'utf-8',
+				'strict_variables' => false,
+				'debug' => true,
+			]
+		],
+		// @TODO: Make a local/dev/production connection later.
+		'db' => [
+			'driver'    => 'mysql',
+			'host'      => DB_HOST,
+			'port'      => DB_PORT,
+			'database'  => DB_NAME,
+			'username'  => DB_USER,
+			'password'  => DB_PASSWORD,
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix' => '',
 		]
 	],
 ];

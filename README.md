@@ -63,9 +63,74 @@ $ php composer.phar start
 
 … and visit <0.0.0.0:8080>.
 
+### Database
+
+```sql
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+## Tips
+
+Random development tips and info …
+
+### Autoload app files
+
+When a new file is created in the [`app/`](app/) directory, for example, it should be automatically loaded into our app.
+
+This functionality is handled via [`composer.json`](composer.json) using the `psr-4` “autoloading” setting, which is just a convention for namespacing.
+
+```json
+"App\\": "app"
+```
+
+… where:
+
+1. `App` could be any name/identifier you want
+1. `\\` is just a json-escaped backslash
+1. `"app"` is the name of the directory we want to autoload files from
+
+Now every new file is autoloaded in based on the namespace.
+
+This will dump the autoload file:
+
+```bash
+$ php composer.phar dump-autoload -o
+Generating optimized autoload files
+```
+
+### Rules and exceptions
+
+We are using the [Respect library](https://github.com/Respect/Validation) for validation.
+
+Respect lets us create custom validation “rules”, like checking if a user’s email already exists in the system.
+
+For example, in `App\Controllers\Auth\AuthController`, we have:
+
+```php
+'email' => v::noWhitespace()->notEmpty()->email()->emailAvailable(),
+```
+
+… where `emailAvailable` is a custom rule defined in `App\Validation\Rules`.
+
+When you need to add a new validation rule, follow these steps:
+
+1. Create a new rule in `App\Validation\Rules`
+1. Create a new related rule exception in `App\Validation\Exceptions`
+1. Apply rule to controller logic
+
 ## Links
 
 * [Composer Dependency Manager for PHP]()
 * [Slim PHP micro framework](http://www.slimframework.com/)
 * [TWIG The flexible, fast, and secure template engine for PHP](http://twig.sensiolabs.org/)
-* [Authentication with Slim 3: Setting up Slim (1/29)](https://youtu.be/RhcQXFeor9g)
+* [Authentication with Slim 3 (29 videos)](https://www.youtube.com/watch?v=RhcQXFeor9g&list=PLfdtiltiRHWGc_yY90XRdq6mRww042aEC)

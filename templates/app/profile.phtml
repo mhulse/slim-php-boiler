@@ -1,0 +1,31 @@
+{% extends "app/base.phtml" %}
+
+{% block content %}
+	
+	<h3>Edit profile</h3>
+	
+	<form action="{{ path_for('user.profile') }}" method="post" autocomplete="off" novalidate>
+		
+		<div class="{{ errors.name ? 'has-error' }}">
+			<label for="name">Name</label>
+			<input type="text" name="name" value="{{ auth.user.name }}">
+			{% if errors.name %}
+				<p>{{ errors.name | first }}</p>
+			{% endif %}
+		</div>
+		
+		<div class="{{ errors.email ? 'has-error' }}">
+			<label for="email">Email</label>
+			<input type="email" name="email" placeholder="you@domain.com"  value="{{ auth.user.email }}">
+			{% if errors.email %}
+				<p>{{ errors.email | first }}</p>
+			{% endif %}
+		</div>
+		
+		{{ csrf.field | raw }}
+		
+		<button type="submit">Change</button>
+		
+	</form>
+	
+{% endblock content %}

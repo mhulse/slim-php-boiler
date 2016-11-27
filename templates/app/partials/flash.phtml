@@ -1,0 +1,17 @@
+{% set alerts = ['success', 'info', 'warning', 'danger'] %}
+
+{% for alert in alerts %}
+	
+	{% if flash.getMessage(alert) %}
+		
+		{% for message in flash.getMessage(alert) %}
+			
+			<p>{{ message | raw }}</p>
+			
+			<button type="button">Close</button>
+			
+		{% endfor %}
+		
+	{% endif %}
+	
+{% endfor %}
