@@ -2,7 +2,7 @@
 
 **So I can get up-and-running with Slim quickly.**
 
-The code in this repository is heavily based on, and inspired by, this video series: [Authentication with Slim 3](https://www.youtube.com/watch?v=RhcQXFeor9g&list=PLfdtiltiRHWGc_yY90XRdq6mRww042aEC) by [@codecourse](https://github.com/codecourse).
+The code in this repository is heavily based on, and inspired by, [Authentication with Slim 3](https://www.youtube.com/watch?v=RhcQXFeor9g&list=PLfdtiltiRHWGc_yY90XRdq6mRww042aEC) by [@codecourse](https://github.com/codecourse).
 
 ## Development process
 
