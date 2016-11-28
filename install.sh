@@ -19,9 +19,6 @@ function install() {
 	# Let the use know that we are done:
 	echo $'\n'"Congrats! Installation was successful!"$'\n'
 	
-	# Open installation folder:
-	open "."
-	
 }
 
 # Check if installation directory meets our requirements:
@@ -38,9 +35,6 @@ function empty() {
 	fi
 	
 }
-
-# Tidy up the terminal window:
-clear
 
 # Create menu:
 empty "$(pwd)"
