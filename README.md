@@ -118,7 +118,7 @@ define('DB_PORT', 3306);
 $ php composer.phar start
 ```
 
-… and visit <0.0.0.0:8080>.
+… and visit <http://0.0.0.0:8080/>.
 
 ## What else?
 
