@@ -23,6 +23,14 @@ Optionally, install my boilerplate dotfiles:
 $ curl -#L https://github.com/mhulse/gh-boiler/tarball/master | tar -xzv --strip-components 1 --include=*/{.editorconfig,.gitattributes,.gitignore} --exclude=*/**/*
 ```
 
+At a bare minimum for dotfiles, you should create a `.gitignore` with these lines:
+
+```text
+composer.phar
+vendor/
+config.php
+```
+
 ### Install Composer
 
 Install [Composer](https://getcomposer.org/):
