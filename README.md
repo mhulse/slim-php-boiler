@@ -49,7 +49,7 @@ Download the code from this repo using composer:
 $ php composer.phar create-project mhulse/slim-php-boiler temp
 ```
 
- bash:
+Or, using `bash` and `curl`:
 
 ```bash
 $ mkdir temp && cd temp && bash <(curl -sL https://git.io/v1ITb) && cd -
