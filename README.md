@@ -80,14 +80,6 @@ $ php composer.phar update
 > [after] deploy[ing] your updated `composer.lock`, [you should] then re-run `composer install`. You should never run `composer update` in production. If however you deploy a new `composer.lock` with new dependencies and/or versions (after having run `composer update` in dev) [you can] then run `composer install` [and] Composer will update and install your new dependencies [onto the production machine’s deployment].  
 > – [“composer update” vs “composer install”](http://adamcod.es/2013/03/07/composer-install-vs-composer-update.html)
 
-Uninstall Composer dependencies using:
-
-```bash
-php composer.phar remove "slim/views"
-```
-
-… where `"slim/views"` is the package name you want to uninstall.
-
 ### Database
 
 In order for this app to work, create a database named `slim-php-boiler` with `UTF-8 Unicode` for the encoding and `utf8_general_ci` for the collation.
